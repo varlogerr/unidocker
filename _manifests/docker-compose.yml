@@ -1,0 +1,11 @@
+version: '2.3'
+
+services:
+  samba_init:
+    extends:
+      file: docker-compose.samba.yml
+      service: samba_init
+  samba_serv:
+    extends:
+      file: docker-compose.samba.yml
+      service: samba_serv

@@ -1,0 +1,27 @@
+version: '2.3'
+
+services:
+  samba_init:
+    # dependencies (varialbes):
+    #   * SAMBA_SHARE_DIR
+    build:
+      context: unidocker/samba
+      args:
+        THE_USER_ID: 1000
+        THE_GROUP_ID: 1000
+    volumes:
+      - ${SAMBA_SHARE_DIR}:/app
+    command: /bin/bash -c "chown 1000:1000 /app"
+    env_file: .env
+  samba_serv:
+    # dependencies (services):
+    #   * samba_init
+    # dependencies (varialbes):
+    #   * SAMBA_PORT
+    extends:
+      file: docker-compose.samba.yml
+      service: samba_init
+    ports:
+      - ${SAMBA_PORT}:445
+    command: []
+    restart: unless-stopped
