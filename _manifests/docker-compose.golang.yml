@@ -1,0 +1,16 @@
+version: '2.3'
+
+services:
+  golang_init:
+    build:
+      context: unidocker/golang
+      args:
+        THE_USER_ID: 1000
+        THE_GROUP_ID: 1000
+    volumes:
+      - ./src:/src
+      - ./src/golang:/app
+    working_dir: /app
+    command: >
+      /bin/bash -c "chown 1000:1000 /app \
+                 && chown 1000:1000 /src"

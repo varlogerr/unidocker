@@ -9,3 +9,8 @@ services:
     extends:
       file: docker-compose.samba.yml
       service: samba_serv
+
+  golang_init:
+    extends:
+      file: docker-compose.golang.yml
+      service: golang_init
