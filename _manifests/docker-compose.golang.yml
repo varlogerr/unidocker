@@ -13,4 +13,6 @@ services:
     working_dir: /app
     command: >
       /bin/bash -c "chown 1000:1000 /app \
-                 && chown 1000:1000 /src"
+                 && chown 1000:1000 /src \
+                 && mkdir -p /app/{src,bin} \
+                 && chown 1000:1000 /app/{src,bin}"
