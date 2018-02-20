@@ -33,6 +33,8 @@ RUN cat /tmp/samba/templates/my_smbd.conf \
       | tee /etc/samba/my_smbd.conf \
     && echo "include = /etc/samba/my_smbd.conf" >> /etc/samba/smb.conf
 
+RUN if [ -z ${SAMBA_PASS+x} ]; then (echo $SAMBA_PASS; sleep 1; echo $SAMBA_PASS) | smbpasswd -s -a app; fi
+
 RUN rm -rf /tmp/samba
 
 ENTRYPOINT ["/tini", "--"]
