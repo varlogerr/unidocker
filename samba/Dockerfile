@@ -1,4 +1,4 @@
-FROM debian:9.3
+FROM debian:9.4
 LABEL maintainer="Varlog <varlog.err@gmail.com>"
 
 ENV TINI_VERSION=v0.16.1

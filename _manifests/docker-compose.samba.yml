@@ -13,7 +13,7 @@ services:
       - ${SAMBA_SHARE_DIR}:/app
     command: /bin/bash -c "chown 1000:1000 /app"
     env_file: .env
-  samba_serv:
+  samba:
     # dependencies (services):
     #   * samba_init
     # dependencies (varialbes):
