@@ -1,5 +1,5 @@
 FROM debian:9.3
-MAINTAINER Varlog <varlog.err@gmail.com>
+LABEL maintainer="Varlog <varlog.err@gmail.com>"
 
 ENV TINI_VERSION=v0.16.1
 ENV THE_USER=app
